@@ -1,1 +1,1 @@
-import "./style.css";
+import "@fontsource-variable/inter";
