@@ -1,37 +1,33 @@
 import Image from 'next/image'
-import logo from '@/assets/logo.svg'
+import logo from '@/assets/roxo_reduzida.png'
 import Link from 'next/link'
 import {
   Disclosure,
   DisclosureButton,
-  DisclosurePanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems
+  DisclosurePanel
 } from '@headlessui/react'
-import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline'
 import { cn } from '@/lib/utils'
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Sobre Nós', href: '#', current: false },
-  { name: 'Conteúdo', href: '#', current: false }
+  { name: 'Home', href: '/', current: true },
+  { name: 'Sobre Nós', href: '#sobre-nos', current: false },
+  { name: 'Conteúdo', href: '#conteudo', current: false }
 ]
 
 export function Header() {
   return (
     <Disclosure as="nav" className="">
-      <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
+      <div className="container sticky top-0">
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-between sm:items-stretch">
-            <div className="flex flex-shrink-0 items-center">
-              <Image alt="Os Site" src={logo} className="h-8 w-auto" />
-            </div>
+            <Link href="/" className="flex flex-shrink-0 items-center">
+              <Image alt="Os Site" src={logo} className="h-24 w-auto" />
+            </Link>
             <div className="hidden items-center sm:ml-6 sm:flex">
               <div className="flex space-x-4">
                 {navigation.map((item) => (
-                  <a
+                  <Link
                     key={item.name}
                     href={item.href}
                     aria-current={item.current ? 'page' : undefined}
@@ -41,7 +37,7 @@ export function Header() {
                     )}
                   >
                     {item.name}
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>
@@ -74,8 +70,8 @@ export function Header() {
               aria-current={item.current ? 'page' : undefined}
               className={cn(
                 item.current
-                  ? 'bg-gray-900 text-white'
-                  : 'text-gray-300 hover:bg-gray-700 hover:text-white',
+                  ? 'bg-primary text-white'
+                  : 'text-gray-600 hover:bg-gray-700 hover:text-white',
                 'block rounded-md px-3 py-2 text-base font-medium'
               )}
             >
