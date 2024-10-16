@@ -10,7 +10,11 @@ export function About() {
     >
       <div className="container grid gap-6 lg:grid-cols-2 lg:gap-12">
         <div className="order-2 self-center lg:order-1">
-          <Image src={logo} alt="Logo" className="max-w-96 lg:max-w-full" />
+          <Image
+            src={logo}
+            alt="Logo"
+            className="w-full max-w-96 lg:max-w-full"
+          />
         </div>
         <div className="space-y-8 px-3">
           <motion.h2

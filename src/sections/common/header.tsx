@@ -22,7 +22,7 @@ export function Header() {
         <div className="relative flex h-16 items-center justify-between">
           <div className="flex flex-1 items-center justify-between sm:items-stretch">
             <Link href="/" className="flex flex-shrink-0 items-center">
-              <Image alt="Os Site" src={logo} className="h-24 w-auto" />
+              <Image alt="Os Site" src={logo} width={40} />
             </Link>
             <div className="hidden items-center sm:ml-6 sm:flex">
               <div className="flex space-x-4">

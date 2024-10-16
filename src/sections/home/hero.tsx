@@ -54,7 +54,9 @@ export function Hero() {
             delay: 0.8
           }}
         >
-          <Button className="w-fit">Começar</Button>
+          <Button className="w-fit" asChild>
+            <a href="#conteudo">Começar</a>
+          </Button>
         </motion.div>
       </div>
       <motion.div
