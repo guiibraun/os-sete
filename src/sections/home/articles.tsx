@@ -9,7 +9,6 @@ export async function Articles() {
 
   return (
     <>
-
       <section id="conteudo" className="container space-y-8 px-3 py-12">
         <motion.h2
           viewport={{ once: true }}
@@ -33,7 +32,7 @@ export async function Articles() {
           {articles.map((article, index) => (
             <article
               key={article.id}
-              className="flex flex-col overflow-hidden rounded-lg border transition-shadow hover:shadow-2xl"
+              className="relative flex flex-col overflow-hidden rounded-lg border transition-shadow hover:shadow-2xl"
             >
               <div className="relative h-[350px] w-full">
                 <Image
@@ -57,6 +56,16 @@ export async function Articles() {
                 >
                   Leia mais
                 </Link>
+                {article.autore.avatar?.url && (
+                  <Image
+                    src={`https://os-oito-admin.spookyhouse.site${article.autore.avatar.url}`}
+                    alt=""
+                    width={80}
+                    height={80}
+                    quality={100}
+                    className="absolute bottom-0 right-0"
+                  />
+                )}
               </div>
             </article>
           ))}

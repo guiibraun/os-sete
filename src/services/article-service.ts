@@ -22,13 +22,18 @@ interface ArticleCollection {
 
 class Articles {
   async getAll() {
-    const response = await api<ArticleCollection>('articles?populate=*')
+    const response = await api<ArticleCollection>('articles?populate=autore.avatar&populate=featured_image', {
+      cache: 'no-cache'
+    })
 
     return response.data
   }
 
   async findOne(slug: string) {
-    const response = await api<ArticleCollection>(`articles?filters[slug][$eq]=${slug}&populate=autore.avatar&populate=featured_image`)
+    const response = await api<ArticleCollection>(`articles?filters[slug][$eq]=${slug}&populate=autore.avatar&populate=featured_image`, {
+      cache: 'no-cache'
+    })
+
 
     if (response.data.length === 0) {
       return notFound()
