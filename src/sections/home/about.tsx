@@ -1,19 +1,30 @@
 import * as motion from 'framer-motion/client'
 import Image from 'next/image'
 import logo from '@/assets/roxo_extensa.png'
+import authorService from '@/services/author-service'
 
-export function About() {
+export async function About() {
+  const author = await authorService.findOne('g3vas99zaxaechsxy82gt12c')
+
   return (
     <section
       id="sobre-nos"
       className="overflow-hidden bg-zinc-100 py-12 2xl:py-20"
     >
       <div className="container grid gap-6 lg:grid-cols-2 lg:gap-12">
-        <div className="order-2 self-center lg:order-1">
+        <div className="relative order-2 self-center lg:order-1">
           <Image
             src={logo}
             alt="Logo"
             className="w-full max-w-96 lg:max-w-full"
+          />
+          <Image
+            src={`https://os-oito-admin.spookyhouse.site${author.avatar.url}`}
+            alt={`Avatar" de ${author.name}`}
+            width={100}
+            height={100}
+            quality={100}
+            className="absolute right-0 top-0"
           />
         </div>
         <div className="space-y-8 px-3">

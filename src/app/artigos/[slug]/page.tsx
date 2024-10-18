@@ -32,18 +32,20 @@ export default async function Page({ params }: PageProps) {
                 {article.title}
               </h1>
               <div className="flex items-center gap-x-1">
-                Autor: {article.autore.name}{' '}
+                Autor: {article.autore?.name}{' '}
               </div>
             </div>
             <div className="relative h-80 w-full max-w-96">
-              <Image
-                src={`https://os-oito-admin.spookyhouse.site${article.autore.avatar.url}`}
-                alt=""
-                width={80}
-                height={80}
-                quality={100}
-                className="absolute bottom-0 right-0 z-10 md:-left-11 md:top-1/2 md:-translate-y-1/2"
-              />
+              {article.autore && article.autore.avatar && (
+                <Image
+                  src={`https://os-oito-admin.spookyhouse.site${article.autore?.avatar.url}`}
+                  alt=""
+                  width={80}
+                  height={80}
+                  quality={100}
+                  className="absolute bottom-0 right-0 z-10 md:-left-11 md:top-1/2 md:-translate-y-1/2"
+                />
+              )}
               <Image
                 src={`https://os-oito-admin.spookyhouse.site${article.featured_image.url}`}
                 alt=""

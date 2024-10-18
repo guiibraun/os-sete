@@ -48,7 +48,7 @@ export async function Articles() {
                   <strong className="line-clamp-2 font-extrabold md:text-xl">
                     {article.title}
                   </strong>
-                  <small>Autor: {article.autore.name}</small>
+                  <small>Autor: {article.autore?.name}</small>
                 </div>
                 <Link
                   href={`/artigos/${article.slug}`}
@@ -56,7 +56,7 @@ export async function Articles() {
                 >
                   Leia mais
                 </Link>
-                {article.autore.avatar?.url && (
+                {article.autore?.avatar?.url && (
                   <Image
                     src={`https://os-oito-admin.spookyhouse.site${article.autore.avatar.url}`}
                     alt=""
