@@ -51,7 +51,7 @@ export function Hero() {
           }}
           transition={{
             duration: 0.5,
-            delay: 0.8
+            delay: 0.5
           }}
         >
           <Button className="w-fit" asChild>

@@ -27,8 +27,8 @@ export async function Games() {
 
   return (
     <>
-      <section id="conteudo" className="space-y-8 bg-purple-50 px-3 py-12">
-        <div className="container">
+      <section id="conteudo" className="bg-purple-50 px-3 py-12">
+        <div className="container space-y-8">
           <motion.h2
             viewport={{ once: true }}
             whileInView={{
@@ -40,7 +40,8 @@ export async function Games() {
               opacity: 0
             }}
             transition={{
-              duration: 0.5
+              duration: 0.5,
+              once: true
             }}
             className="text-center text-4xl font-extrabold"
           >

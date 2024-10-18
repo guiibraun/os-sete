@@ -9,7 +9,7 @@ export async function About() {
   return (
     <section
       id="sobre-nos"
-      className="overflow-hidden bg-zinc-100 py-12 2xl:py-20"
+      className="overflow-hidden bg-purple-50 py-12 2xl:py-20"
     >
       <div className="container grid gap-6 lg:grid-cols-2 lg:gap-12">
         <div className="relative order-2 self-center lg:order-1">
@@ -34,10 +34,10 @@ export async function About() {
           <Image
             src={`https://os-oito-admin.spookyhouse.site${author.avatar.url}`}
             alt={`Avatar" de ${author.name}`}
-            width={100}
-            height={100}
+            width={80}
+            height={80}
             quality={100}
-            className="absolute right-0 top-0"
+            className="absolute -top-8 right-0"
           />
         </div>
         <div className="space-y-8 px-3">
