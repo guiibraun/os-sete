@@ -1,3 +1,4 @@
+import { Games } from '@/sections/home/games'
 import { About } from '../sections/home/about'
 import { Articles } from '../sections/home/articles'
 import { Hero } from '../sections/home/hero'
@@ -8,6 +9,7 @@ export default function Home() {
       <Hero />
       <About />
       <Articles />
+      <Games />
     </>
   )
 }

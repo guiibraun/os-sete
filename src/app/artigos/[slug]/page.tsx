@@ -9,6 +9,14 @@ interface PageProps {
   }
 }
 
+export async function generateStaticParams() {
+  const posts = await ArticleService.getAll()
+
+  return posts.map((post) => ({
+    slug: post.slug
+  }))
+}
+
 export default async function Page({ params }: PageProps) {
   const { slug } = params
 
@@ -45,6 +53,16 @@ export default async function Page({ params }: PageProps) {
             </div>
           </div>
         </section>
+        {article.video && (
+          <>
+            <section className="container my-8 min-h-[350px] lg:min-h-[550px]">
+              <div
+                dangerouslySetInnerHTML={{ __html: article.video }}
+                className="h-[380px] *:w-full md:*:h-[550px]"
+              ></div>
+            </section>
+          </>
+        )}
         <section className="container my-8">
           <div className="prose prose-base max-w-none">
             <BlockRendererClient content={article.content} />

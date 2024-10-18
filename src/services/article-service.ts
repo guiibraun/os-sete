@@ -7,6 +7,7 @@ interface Article {
   id: number
   title: string
   slug: string
+  video: string | null
   content: BlocksContent
   featured_image: File
   createdAt: string
@@ -23,7 +24,9 @@ interface ArticleCollection {
 class Articles {
   async getAll() {
     const response = await api<ArticleCollection>('articles?populate=autore.avatar&populate=featured_image', {
-      cache: 'no-cache'
+      next: {
+        revalidate: 3600 // 1 hour
+      }
     })
 
     return response.data
@@ -31,7 +34,9 @@ class Articles {
 
   async findOne(slug: string) {
     const response = await api<ArticleCollection>(`articles?filters[slug][$eq]=${slug}&populate=autore.avatar&populate=featured_image`, {
-      cache: 'no-cache'
+      next: {
+        revalidate: 3600 // 1 hour
+      }
     })
 
 

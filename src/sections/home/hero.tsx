@@ -21,7 +21,7 @@ export function Hero() {
             duration: 0.5
           }}
         >
-          Faça a programação ser divertida
+          Vamos descomplicar a programação juntos?
         </motion.h1>
         <motion.p
           className="text-lg"
@@ -38,7 +38,7 @@ export function Hero() {
             delay: 0.5
           }}
         >
-          Any subject, in any language, on any device, for all ages!
+          Pegue seu café e vem com a gente!
         </motion.p>
         <motion.div
           initial={{
