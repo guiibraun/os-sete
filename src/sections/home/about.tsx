@@ -13,11 +13,24 @@ export async function About() {
     >
       <div className="container grid gap-6 lg:grid-cols-2 lg:gap-12">
         <div className="relative order-2 self-center lg:order-1">
-          <Image
-            src={logo}
-            alt="Logo"
-            className="w-full max-w-96 lg:max-w-full"
-          />
+          <motion.div
+            viewport={{ once: true }}
+            whileInView={{
+              opacity: 1
+            }}
+            initial={{
+              opacity: 0
+            }}
+            transition={{
+              duration: 1
+            }}
+          >
+            <Image
+              src={logo}
+              alt="Logo"
+              className="w-full max-w-96 lg:max-w-full"
+            />
+          </motion.div>
           <Image
             src={`https://os-oito-admin.spookyhouse.site${author.avatar.url}`}
             alt={`Avatar" de ${author.name}`}
@@ -31,11 +44,9 @@ export async function About() {
           <motion.h2
             viewport={{ once: true }}
             whileInView={{
-              y: 0,
               opacity: 1
             }}
             initial={{
-              y: 100,
               opacity: 0
             }}
             transition={{
@@ -58,8 +69,8 @@ export async function About() {
                 opacity: 0
               }}
               transition={{
-                duration: 0.8,
-                delay: 0.5
+                duration: 0.5,
+                delay: 0.4
               }}
             >
               Nós somos o grupo "Os8", um coletivo de acadêmicos da Universidade
@@ -78,8 +89,8 @@ export async function About() {
                 opacity: 0
               }}
               transition={{
-                duration: 0.8,
-                delay: 0.8
+                duration: 0.5,
+                delay: 0.6
               }}
             >
               Acreditamos que o conhecimento em tecnologia é uma ferramenta
@@ -99,8 +110,8 @@ export async function About() {
                 opacity: 0
               }}
               transition={{
-                duration: 0.8,
-                delay: 1
+                duration: 0.5,
+                delay: 0.7
               }}
             >
               Nosso grupo é formado por estudantes apaixonados, prontos para
@@ -120,8 +131,8 @@ export async function About() {
                 opacity: 0
               }}
               transition={{
-                duration: 0.8,
-                delay: 1.1
+                duration: 0.5,
+                delay: 0.8
               }}
             >
               Venha fazer parte da nossa jornada e aprenda a programar conosco!

@@ -4,6 +4,25 @@ import * as motion from 'framer-motion/client'
 import Image from 'next/image'
 import Link from 'next/link'
 
+const variants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+
+    transition: {
+      delayChildren: 0.1,
+      staggerChildren: 0.1
+    }
+  }
+}
+
+const item = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1
+  }
+}
+
 export async function Articles() {
   const articles = await articleService.getAll()
 
@@ -28,10 +47,19 @@ export async function Articles() {
           Conteúdos
         </motion.h2>
         <hr className="mx-auto my-4 max-w-28 border-t-8 border-primary" />
-        <div className="grid gap-4 lg:grid-cols-3">
-          {articles.map((article, index) => (
-            <article
+        <motion.div
+          variants={variants}
+          initial="hidden"
+          whileInView="visible"
+          className="grid gap-4 lg:grid-cols-3"
+        >
+          {articles.map((article) => (
+            <motion.article
+              variants={item}
               key={article.id}
+              transition={{
+                once: true
+              }}
               className="relative flex flex-col overflow-hidden rounded-lg border transition-shadow hover:shadow-2xl"
             >
               <div className="relative h-[350px] w-full">
@@ -67,9 +95,9 @@ export async function Articles() {
                   />
                 )}
               </div>
-            </article>
+            </motion.article>
           ))}
-        </div>
+        </motion.div>
       </section>
     </>
   )

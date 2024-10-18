@@ -2,7 +2,25 @@ import Loading from '@/app/artigos/[slug]/loading'
 import GamesService from '@/services/game-service'
 import * as motion from 'framer-motion/client'
 import Image from 'next/image'
-import Link from 'next/link'
+
+const variants = {
+  hidden: { opacity: 1 },
+  visible: {
+    opacity: 1,
+
+    transition: {
+      delayChildren: 0.1,
+      staggerChildren: 0.2
+    }
+  }
+}
+
+const item = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1
+  }
+}
 
 export async function Games() {
   const games = await GamesService.getAll()
@@ -29,10 +47,19 @@ export async function Games() {
             Jogos de Lógica
           </motion.h2>
           <hr className="mx-auto my-4 max-w-28 border-t-8 border-primary" />
-          <div className="grid gap-4 lg:grid-cols-3">
+          <motion.div
+            className="grid gap-4 lg:grid-cols-3"
+            variants={variants}
+            initial="hidden"
+            whileInView="visible"
+          >
             {games.map((game, index) => (
-              <article
+              <motion.article
                 key={game.id}
+                variants={item}
+                transition={{
+                  once: true
+                }}
                 className="relative flex flex-col overflow-hidden rounded-lg border transition-shadow hover:shadow-2xl"
               >
                 <div className="relative h-[350px] w-full">
@@ -59,9 +86,9 @@ export async function Games() {
                     Jogar
                   </a>
                 </div>
-              </article>
+              </motion.article>
             ))}
-          </div>
+          </motion.div>
         </div>
       </section>
     </>
